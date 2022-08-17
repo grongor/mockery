@@ -1,7 +1,14 @@
 SHELL=bash
 
+.PHONY: build
+build:
+	go build .
+
+.PHONY: check
+check: mocks fmt test
+
 .PHONY: all
-all: fmt mocks test install docker integration
+all: check install docker integration
 
 .PHONY: fmt
 fmt:
